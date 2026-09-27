@@ -1,7 +1,7 @@
-@icon("icon.svg")
+@icon("res://addons/at-icons/node2d/bullet.svg")
 class_name Bullet extends Node2D
 
-@export var speed: int = 2
+var speed: int = 10
 
 func _process(delta: float) -> void:
 	position.y -= speed * delta

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cfa0wt0xbhjhq"]
 
 [ext_resource type="Texture2D" uid="uid://c4rsrxf7wv5am" path="res://spritesheet.png" id="1_v7oki"]
-[ext_resource type="Script" uid="uid://dcby1oqy8kdcn" path="res://bullet.gd" id="1_v8qja"]
+[ext_resource type="Script" uid="uid://dcby1oqy8kdcn" path="res://scenes/bullet.gd" id="1_v8qja"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j4dlv"]
 atlas = ExtResource("1_v7oki")
@@ -9,7 +9,6 @@ region = Rect2(52, 21, 1, 4)
 
 [node name="Bullet" type="Node2D" unique_id=532600033]
 script = ExtResource("1_v8qja")
-speed = 200
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=177481890]
 scale = Vector2(5, 5)

@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://epfqcb06ps7i"]
+
+[ext_resource type="PackedScene" uid="uid://crbdy32cwfjl" path="res://scenes/player.tscn" id="1_rupst"]
+
+[node name="Playground" type="Node2D" unique_id=108654040]
+
+[node name="Player" parent="." unique_id=885219884 node_paths=PackedStringArray("leftCornerNode", "rightCornerNode") instance=ExtResource("1_rupst")]
+position = Vector2(576, 620)
+leftCornerNode = NodePath("../LeftCorner")
+rightCornerNode = NodePath("../RightCorner")
+bulletSpeed = 300
+moveSpeed = 300
+
+[node name="LeftCorner" type="Marker2D" parent="." unique_id=1648092884]
+position = Vector2(0, 324)
+
+[node name="RightCorner" type="Marker2D" parent="." unique_id=1722024245]
+position = Vector2(1152, 324)
