@@ -28,19 +28,19 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if (Input.is_action_pressed("move_left")):
-		move_left(delta * moveSpeed)
+		moveLeft(delta * moveSpeed)
 	elif (Input.is_action_pressed("move_right")):
-		move_right(delta * moveSpeed)
+		moveRight(delta * moveSpeed)
 	if (Input.is_action_pressed("shoot")):
 		shoot()
 
 
-func move_left(amount: float) -> void:
+func moveLeft(amount: float) -> void:
 	if (position.x > leftCornerLimit): 
 		position.x -= amount
 
 
-func move_right(amount: float) -> void:
+func moveRight(amount: float) -> void:
 	if (position.x < rightCornerLimit):
 		position.x += amount
 
@@ -53,7 +53,15 @@ func shoot() -> void:
 	playground.add_child(bulletInstance) 
 	bulletInstance.speed = bulletSpeed
 	bulletInstance.position = bulletOrigin.global_position
-	
-	await get_tree().create_timer(1.0).timeout
+	bulletInstance.collisionArea.body_entered.connect(Callable(self, "onProjectileHitWall"))
+	bulletInstance.collisionArea.area_entered.connect(Callable(self, "onProjectileHitEnemy"))
+
+
+func onProjectileHitWall(wall: Node2D):
+	prints("hit wall:", wall)
 	bulletInstance.queue_free()
-	print("Excluindo o projétil...")
+
+
+func onProjectileHitEnemy(enemyArea: Area2D):
+	prints("hit enemy:", enemyArea.get_parent().name)
+	bulletInstance.queue_free()

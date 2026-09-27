@@ -39,6 +39,14 @@ shoot={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="walls"
+2d_physics/layer_2="defensive_wall"
+2d_physics/layer_3="player"
+2d_physics/layer_4="enemies"
+2d_physics/layer_5="bullet"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

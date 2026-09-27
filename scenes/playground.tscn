@@ -1,18 +1,68 @@
 [gd_scene format=3 uid="uid://epfqcb06ps7i"]
 
 [ext_resource type="PackedScene" uid="uid://crbdy32cwfjl" path="res://scenes/player.tscn" id="1_rupst"]
+[ext_resource type="Texture2D" uid="uid://c4rsrxf7wv5am" path="res://spritesheet.png" id="2_qchbg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p4a6n"]
+size = Vector2(36, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hddm4"]
+size = Vector2(1152, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qchbg"]
+size = Vector2(1152, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kddj0"]
+size = Vector2(30, 608)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q8s1k"]
+size = Vector2(30, 608)
 
 [node name="Playground" type="Node2D" unique_id=108654040]
 
 [node name="Player" parent="." unique_id=885219884 node_paths=PackedStringArray("leftCornerNode", "rightCornerNode") instance=ExtResource("1_rupst")]
-position = Vector2(576, 620)
+position = Vector2(576, 613)
 leftCornerNode = NodePath("../LeftCorner")
 rightCornerNode = NodePath("../RightCorner")
 bulletSpeed = 300
 moveSpeed = 300
+
+[node name="Enemy" type="Node2D" parent="." unique_id=568269468]
+position = Vector2(575, 69)
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemy" unique_id=364143575]
+scale = Vector2(3, 3)
+texture = ExtResource("2_qchbg")
+region_enabled = true
+region_rect = Rect2(39, 1, 12, 8)
+
+[node name="Area2D" type="Area2D" parent="Enemy" unique_id=2137406874]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/Area2D" unique_id=847344041]
+shape = SubResource("RectangleShape2D_p4a6n")
 
 [node name="LeftCorner" type="Marker2D" parent="." unique_id=1648092884]
 position = Vector2(0, 324)
 
 [node name="RightCorner" type="Marker2D" parent="." unique_id=1722024245]
 position = Vector2(1152, 324)
+
+[node name="Walls" type="StaticBody2D" parent="." unique_id=1352075602]
+
+[node name="Top" type="CollisionShape2D" parent="Walls" unique_id=2046766326]
+position = Vector2(576, 10)
+shape = SubResource("RectangleShape2D_hddm4")
+
+[node name="Bottom" type="CollisionShape2D" parent="Walls" unique_id=119762975]
+position = Vector2(576, 638)
+shape = SubResource("RectangleShape2D_qchbg")
+
+[node name="Left" type="CollisionShape2D" parent="Walls" unique_id=1550035555]
+position = Vector2(15, 324)
+shape = SubResource("RectangleShape2D_kddj0")
+
+[node name="Right" type="CollisionShape2D" parent="Walls" unique_id=1992413594]
+position = Vector2(1137, 324)
+shape = SubResource("RectangleShape2D_q8s1k")
