@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://c1ffc7gcr5cw8"]
+
+[ext_resource type="PackedScene" uid="uid://be61bepac88kx" path="res://scenes/enemy.tscn" id="1_cevnf"]
+[ext_resource type="Script" uid="uid://bh65vfr65d5tq" path="res://scenes/enemy_swarm.gd" id="1_jx3qf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p4a6n"]
+size = Vector2(4.5, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jx3qf"]
+size = Vector2(4.5, 20)
+
+[node name="EnemySwarm" type="Node2D" unique_id=85273450]
+script = ExtResource("1_jx3qf")
+
+[node name="Timer" type="Timer" parent="." unique_id=767763707]
+wait_time = 0.5
+autostart = true
+
+[node name="Enemy" parent="." unique_id=1768560801 instance=ExtResource("1_cevnf")]
+position = Vector2(-216, -20)
+
+[node name="Enemy2" parent="." unique_id=1804966221 instance=ExtResource("1_cevnf")]
+position = Vector2(-168, -20)
+
+[node name="Enemy3" parent="." unique_id=1925210054 instance=ExtResource("1_cevnf")]
+position = Vector2(-120, -20)
+
+[node name="Enemy4" parent="." unique_id=1488186476 instance=ExtResource("1_cevnf")]
+position = Vector2(-72, -20)
+
+[node name="Enemy5" parent="." unique_id=1639777661 instance=ExtResource("1_cevnf")]
+position = Vector2(-24, -20)
+
+[node name="Enemy6" parent="." unique_id=687787421 instance=ExtResource("1_cevnf")]
+position = Vector2(24, -20)
+
+[node name="Enemy7" parent="." unique_id=1649684793 instance=ExtResource("1_cevnf")]
+position = Vector2(72, -20)
+
+[node name="Enemy8" parent="." unique_id=1711295790 instance=ExtResource("1_cevnf")]
+position = Vector2(120, -20)
+
+[node name="Enemy9" parent="." unique_id=2133928114 instance=ExtResource("1_cevnf")]
+position = Vector2(168, -20)
+
+[node name="Enemy10" parent="." unique_id=966722703 instance=ExtResource("1_cevnf")]
+position = Vector2(216, -20)
+
+[node name="Enemy11" parent="." unique_id=880455487 instance=ExtResource("1_cevnf")]
+position = Vector2(-216, 20)
+
+[node name="Enemy12" parent="." unique_id=2061908421 instance=ExtResource("1_cevnf")]
+position = Vector2(-168, 20)
+
+[node name="Enemy13" parent="." unique_id=1596055282 instance=ExtResource("1_cevnf")]
+position = Vector2(-120, 20)
+
+[node name="Enemy14" parent="." unique_id=1454656396 instance=ExtResource("1_cevnf")]
+position = Vector2(-72, 20)
+
+[node name="Enemy15" parent="." unique_id=782182928 instance=ExtResource("1_cevnf")]
+position = Vector2(-24, 20)
+
+[node name="Enemy16" parent="." unique_id=1434842887 instance=ExtResource("1_cevnf")]
+position = Vector2(24, 20)
+
+[node name="Enemy17" parent="." unique_id=246327147 instance=ExtResource("1_cevnf")]
+position = Vector2(72, 20)
+
+[node name="Enemy18" parent="." unique_id=906043850 instance=ExtResource("1_cevnf")]
+position = Vector2(120, 20)
+
+[node name="Enemy19" parent="." unique_id=210955421 instance=ExtResource("1_cevnf")]
+position = Vector2(168, 20)
+
+[node name="Enemy20" parent="." unique_id=1242094927 instance=ExtResource("1_cevnf")]
+position = Vector2(216, 20)
+
+[node name="WallDetector" type="Area2D" parent="." unique_id=1435725544]
+collision_layer = 0
+
+[node name="Left" type="CollisionShape2D" parent="WallDetector" unique_id=1230065594]
+position = Vector2(-234, 0)
+shape = SubResource("RectangleShape2D_p4a6n")
+debug_color = Color(0.9405022, 9.529888e-06, 0.6169056, 0.41960785)
+
+[node name="Right" type="CollisionShape2D" parent="WallDetector" unique_id=918845501]
+position = Vector2(234, 0)
+shape = SubResource("RectangleShape2D_jx3qf")
+debug_color = Color(0.9405022, 9.529888e-06, 0.6169056, 0.41960785)

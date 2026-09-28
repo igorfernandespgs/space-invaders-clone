@@ -1,10 +1,7 @@
 [gd_scene format=3 uid="uid://epfqcb06ps7i"]
 
 [ext_resource type="PackedScene" uid="uid://crbdy32cwfjl" path="res://scenes/player.tscn" id="1_rupst"]
-[ext_resource type="Texture2D" uid="uid://c4rsrxf7wv5am" path="res://spritesheet.png" id="2_qchbg"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_p4a6n"]
-size = Vector2(36, 24)
+[ext_resource type="PackedScene" uid="uid://c1ffc7gcr5cw8" path="res://scenes/enemy_swarm.tscn" id="2_qchbg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hddm4"]
 size = Vector2(1152, 20)
@@ -27,21 +24,8 @@ rightCornerNode = NodePath("../RightCorner")
 bulletSpeed = 300
 moveSpeed = 300
 
-[node name="Enemy" type="Node2D" parent="." unique_id=568269468]
-position = Vector2(575, 69)
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemy" unique_id=364143575]
-scale = Vector2(3, 3)
-texture = ExtResource("2_qchbg")
-region_enabled = true
-region_rect = Rect2(39, 1, 12, 8)
-
-[node name="Area2D" type="Area2D" parent="Enemy" unique_id=2137406874]
-collision_layer = 8
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/Area2D" unique_id=847344041]
-shape = SubResource("RectangleShape2D_p4a6n")
+[node name="EnemySwarm" parent="." unique_id=85273450 instance=ExtResource("2_qchbg")]
+position = Vector2(576, 148)
 
 [node name="LeftCorner" type="Marker2D" parent="." unique_id=1648092884]
 position = Vector2(0, 324)
