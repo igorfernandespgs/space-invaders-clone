@@ -7,7 +7,7 @@ class_name Player extends Node2D
 
 @export_group("Projectile")
 @export var bulletScene: PackedScene = preload("res://scenes/bullet.tscn")
-@export var bulletSpeed: int
+@export var bulletSpeed: int = 300
 
 @export_group("Stats")
 @export var moveSpeed:int = 5
@@ -57,6 +57,10 @@ func shoot() -> void:
 	bulletInstance.collisionArea.area_entered.connect(Callable(self, "onProjectileHitEnemy"))
 
 
+func die():
+	print("player died")
+
+
 func onProjectileHitWall(wall: Node2D):
 	prints("hit wall:", wall)
 	bulletInstance.queue_free()
@@ -65,3 +69,5 @@ func onProjectileHitWall(wall: Node2D):
 func onProjectileHitEnemy(enemyArea: Area2D):
 	prints("hit enemy:", enemyArea.get_parent().name)
 	bulletInstance.queue_free()
+	var enemy: RegularEnemy = enemyArea.get_parent()
+	enemy.die()

@@ -16,6 +16,10 @@ run/main_scene="uid://epfqcb06ps7i"
 config/features=PackedStringArray("4.7")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Events="*uid://cna6knhwy6i4j"
+
 [input]
 
 move_right={
