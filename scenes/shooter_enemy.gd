@@ -35,7 +35,11 @@ func onProjectileHitWall(wall: Node2D):
 
 
 func onProjectileHitPlayer(entityArea: Area2D):
+	
+	# TODO: Resolver isso aqui usando owner e a keyword "is" para 
+	# fazer uma condicional e já castar a variável para o tipo Player
 	var isPlayer = entityArea.get_parent().name.match("Player")
+	
 	if not isPlayer:
 		return
 	var player: Player = entityArea.get_parent()
