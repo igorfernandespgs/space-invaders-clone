@@ -30,122 +30,126 @@ position = Vector2(288, 0)
 shape = SubResource("RectangleShape2D_jx3qf")
 debug_color = Color(0.9405022, 9.529888e-06, 0.6169056, 0.41960785)
 
-[node name="RegularEnemy" parent="." unique_id=1768560801 instance=ExtResource("1_cevnf")]
+[node name="RegularEnemies" type="Node2D" parent="." unique_id=200179896]
+
+[node name="RegularEnemy" parent="RegularEnemies" unique_id=1768560801 instance=ExtResource("1_cevnf")]
 position = Vector2(-270, -20)
 
-[node name="RegularEnemy2" parent="." unique_id=1804966221 instance=ExtResource("1_cevnf")]
+[node name="RegularEnemy2" parent="RegularEnemies" unique_id=1804966221 instance=ExtResource("1_cevnf")]
 position = Vector2(-210, -20)
 
-[node name="RegularEnemy3" parent="." unique_id=1925210054 instance=ExtResource("1_cevnf")]
+[node name="RegularEnemy3" parent="RegularEnemies" unique_id=1925210054 instance=ExtResource("1_cevnf")]
 position = Vector2(-150, -20)
 
-[node name="RegularEnemy4" parent="." unique_id=1488186476 instance=ExtResource("1_cevnf")]
+[node name="RegularEnemy4" parent="RegularEnemies" unique_id=1488186476 instance=ExtResource("1_cevnf")]
 position = Vector2(-90, -20)
 
-[node name="RegularEnemy5" parent="." unique_id=1639777661 instance=ExtResource("1_cevnf")]
+[node name="RegularEnemy5" parent="RegularEnemies" unique_id=1639777661 instance=ExtResource("1_cevnf")]
 position = Vector2(-30, -20)
 
-[node name="RegularEnemy6" parent="." unique_id=687787421 instance=ExtResource("1_cevnf")]
+[node name="RegularEnemy6" parent="RegularEnemies" unique_id=687787421 instance=ExtResource("1_cevnf")]
 position = Vector2(30, -20)
 
-[node name="RegularEnemy7" parent="." unique_id=1649684793 instance=ExtResource("1_cevnf")]
+[node name="RegularEnemy7" parent="RegularEnemies" unique_id=1649684793 instance=ExtResource("1_cevnf")]
 position = Vector2(90, -20)
 
-[node name="RegularEnemy8" parent="." unique_id=1711295790 instance=ExtResource("1_cevnf")]
+[node name="RegularEnemy8" parent="RegularEnemies" unique_id=1711295790 instance=ExtResource("1_cevnf")]
 position = Vector2(150, -20)
 
-[node name="RegularEnemy9" parent="." unique_id=2133928114 instance=ExtResource("1_cevnf")]
+[node name="RegularEnemy9" parent="RegularEnemies" unique_id=2133928114 instance=ExtResource("1_cevnf")]
 position = Vector2(210, -20)
 
-[node name="RegularEnemy10" parent="." unique_id=966722703 instance=ExtResource("1_cevnf")]
+[node name="RegularEnemy10" parent="RegularEnemies" unique_id=966722703 instance=ExtResource("1_cevnf")]
 position = Vector2(270, -20)
 
-[node name="RegularEnemy11" parent="." unique_id=880455487 instance=ExtResource("1_cevnf")]
+[node name="RegularEnemy11" parent="RegularEnemies" unique_id=880455487 instance=ExtResource("1_cevnf")]
 position = Vector2(-270, 20)
 
-[node name="RegularEnemy12" parent="." unique_id=2061908421 instance=ExtResource("1_cevnf")]
+[node name="RegularEnemy12" parent="RegularEnemies" unique_id=2061908421 instance=ExtResource("1_cevnf")]
 position = Vector2(-210, 20)
 
-[node name="RegularEnemy13" parent="." unique_id=1596055282 instance=ExtResource("1_cevnf")]
+[node name="RegularEnemy13" parent="RegularEnemies" unique_id=1596055282 instance=ExtResource("1_cevnf")]
 position = Vector2(-150, 20)
 
-[node name="RegularEnemy14" parent="." unique_id=1454656396 instance=ExtResource("1_cevnf")]
+[node name="RegularEnemy14" parent="RegularEnemies" unique_id=1454656396 instance=ExtResource("1_cevnf")]
 position = Vector2(-90, 20)
 
-[node name="RegularEnemy15" parent="." unique_id=782182928 instance=ExtResource("1_cevnf")]
+[node name="RegularEnemy15" parent="RegularEnemies" unique_id=782182928 instance=ExtResource("1_cevnf")]
 position = Vector2(-30, 20)
 
-[node name="RegularEnemy16" parent="." unique_id=1434842887 instance=ExtResource("1_cevnf")]
+[node name="RegularEnemy16" parent="RegularEnemies" unique_id=1434842887 instance=ExtResource("1_cevnf")]
 position = Vector2(30, 20)
 
-[node name="RegularEnemy17" parent="." unique_id=246327147 instance=ExtResource("1_cevnf")]
+[node name="RegularEnemy17" parent="RegularEnemies" unique_id=246327147 instance=ExtResource("1_cevnf")]
 position = Vector2(90, 20)
 
-[node name="RegularEnemy18" parent="." unique_id=906043850 instance=ExtResource("1_cevnf")]
+[node name="RegularEnemy18" parent="RegularEnemies" unique_id=906043850 instance=ExtResource("1_cevnf")]
 position = Vector2(150, 20)
 
-[node name="RegularEnemy19" parent="." unique_id=210955421 instance=ExtResource("1_cevnf")]
+[node name="RegularEnemy19" parent="RegularEnemies" unique_id=210955421 instance=ExtResource("1_cevnf")]
 position = Vector2(210, 20)
 
-[node name="RegularEnemy20" parent="." unique_id=1242094927 instance=ExtResource("1_cevnf")]
+[node name="RegularEnemy20" parent="RegularEnemies" unique_id=1242094927 instance=ExtResource("1_cevnf")]
 position = Vector2(270, 20)
 
-[node name="LightningShooter" parent="." unique_id=1434961722 instance=ExtResource("3_su2v0")]
+[node name="LightingShooters" type="Node2D" parent="." unique_id=512564131]
+
+[node name="LightningShooter" parent="LightingShooters" unique_id=1434961722 instance=ExtResource("3_su2v0")]
 position = Vector2(-270, 60)
 
-[node name="LightningShooter2" parent="." unique_id=825970380 instance=ExtResource("3_su2v0")]
+[node name="LightningShooter2" parent="LightingShooters" unique_id=825970380 instance=ExtResource("3_su2v0")]
 position = Vector2(-210, 60)
 
-[node name="LightningShooter3" parent="." unique_id=551885178 instance=ExtResource("3_su2v0")]
+[node name="LightningShooter3" parent="LightingShooters" unique_id=551885178 instance=ExtResource("3_su2v0")]
 position = Vector2(-150, 60)
 
-[node name="LightningShooter4" parent="." unique_id=453493724 instance=ExtResource("3_su2v0")]
+[node name="LightningShooter4" parent="LightingShooters" unique_id=453493724 instance=ExtResource("3_su2v0")]
 position = Vector2(-90, 60)
 
-[node name="LightningShooter5" parent="." unique_id=967102496 instance=ExtResource("3_su2v0")]
+[node name="LightningShooter5" parent="LightingShooters" unique_id=967102496 instance=ExtResource("3_su2v0")]
 position = Vector2(-30, 60)
 
-[node name="LightningShooter6" parent="." unique_id=2062915654 instance=ExtResource("3_su2v0")]
+[node name="LightningShooter6" parent="LightingShooters" unique_id=2062915654 instance=ExtResource("3_su2v0")]
 position = Vector2(30, 60)
 
-[node name="LightningShooter7" parent="." unique_id=1424190317 instance=ExtResource("3_su2v0")]
+[node name="LightningShooter7" parent="LightingShooters" unique_id=1424190317 instance=ExtResource("3_su2v0")]
 position = Vector2(90, 60)
 
-[node name="LightningShooter8" parent="." unique_id=1593575270 instance=ExtResource("3_su2v0")]
+[node name="LightningShooter8" parent="LightingShooters" unique_id=1593575270 instance=ExtResource("3_su2v0")]
 position = Vector2(150, 60)
 
-[node name="LightningShooter9" parent="." unique_id=1990033593 instance=ExtResource("3_su2v0")]
+[node name="LightningShooter9" parent="LightingShooters" unique_id=1990033593 instance=ExtResource("3_su2v0")]
 position = Vector2(210, 60)
 
-[node name="LightningShooter10" parent="." unique_id=1596915795 instance=ExtResource("3_su2v0")]
+[node name="LightningShooter10" parent="LightingShooters" unique_id=1596915795 instance=ExtResource("3_su2v0")]
 position = Vector2(270, 60)
 
-[node name="LightningShooter11" parent="." unique_id=564203185 instance=ExtResource("3_su2v0")]
+[node name="LightningShooter11" parent="LightingShooters" unique_id=564203185 instance=ExtResource("3_su2v0")]
 position = Vector2(-270, 100)
 
-[node name="LightningShooter12" parent="." unique_id=1526283090 instance=ExtResource("3_su2v0")]
+[node name="LightningShooter12" parent="LightingShooters" unique_id=1526283090 instance=ExtResource("3_su2v0")]
 position = Vector2(-210, 100)
 
-[node name="LightningShooter13" parent="." unique_id=1836642606 instance=ExtResource("3_su2v0")]
+[node name="LightningShooter13" parent="LightingShooters" unique_id=1836642606 instance=ExtResource("3_su2v0")]
 position = Vector2(-150, 100)
 
-[node name="LightningShooter14" parent="." unique_id=1503977715 instance=ExtResource("3_su2v0")]
+[node name="LightningShooter14" parent="LightingShooters" unique_id=1503977715 instance=ExtResource("3_su2v0")]
 position = Vector2(-90, 100)
 
-[node name="LightningShooter15" parent="." unique_id=1259269202 instance=ExtResource("3_su2v0")]
+[node name="LightningShooter15" parent="LightingShooters" unique_id=1259269202 instance=ExtResource("3_su2v0")]
 position = Vector2(-30, 100)
 
-[node name="LightningShooter16" parent="." unique_id=1348850901 instance=ExtResource("3_su2v0")]
+[node name="LightningShooter16" parent="LightingShooters" unique_id=1348850901 instance=ExtResource("3_su2v0")]
 position = Vector2(30, 100)
 
-[node name="LightningShooter17" parent="." unique_id=1019743889 instance=ExtResource("3_su2v0")]
+[node name="LightningShooter17" parent="LightingShooters" unique_id=1019743889 instance=ExtResource("3_su2v0")]
 position = Vector2(90, 100)
 
-[node name="LightningShooter18" parent="." unique_id=832764821 instance=ExtResource("3_su2v0")]
+[node name="LightningShooter18" parent="LightingShooters" unique_id=832764821 instance=ExtResource("3_su2v0")]
 position = Vector2(150, 100)
 
-[node name="LightningShooter19" parent="." unique_id=803402212 instance=ExtResource("3_su2v0")]
+[node name="LightningShooter19" parent="LightingShooters" unique_id=803402212 instance=ExtResource("3_su2v0")]
 position = Vector2(210, 100)
 
-[node name="LightningShooter20" parent="." unique_id=1664705417 instance=ExtResource("3_su2v0")]
+[node name="LightningShooter20" parent="LightingShooters" unique_id=1664705417 instance=ExtResource("3_su2v0")]
 position = Vector2(270, 100)

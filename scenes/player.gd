@@ -69,5 +69,5 @@ func onProjectileHitWall(wall: Node2D):
 func onProjectileHitEnemy(enemyArea: Area2D):
 	prints("hit enemy:", enemyArea.get_parent().name)
 	bulletInstance.queue_free()
-	var enemy: RegularEnemy = enemyArea.get_parent()
+	var enemy = enemyArea.get_parent()
 	enemy.die()

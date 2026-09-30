@@ -10,6 +10,7 @@ var bulletInstance: Bullet
 @onready var bulletOrigin: Marker2D = $BulletOrigin
 @onready var playground:Node2D = get_tree().get_nodes_in_group("map")[0]
 
+
 func shoot() -> void:
 	if bulletInstance:
 		return
@@ -20,6 +21,13 @@ func shoot() -> void:
 	bulletInstance.position = bulletOrigin.global_position
 	bulletInstance.collisionArea.body_entered.connect(Callable(self, "onProjectileHitWall"))
 	bulletInstance.collisionArea.area_entered.connect(Callable(self, "onProjectileHitEntity"))
+
+
+func die():
+	print("%s died" % self.name)
+	Events.emit_signal("enemy_died", self)
+	queue_free()
+
 
 func onProjectileHitWall(wall: Node2D):
 	prints("%s bullet hit wall: %s" % [self.name, wall])

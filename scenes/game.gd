@@ -4,5 +4,5 @@ func _ready() -> void:
 	Events.enemy_died.connect(Callable(self, "onEnemyDied"))
 
 
-func onEnemyDied(enemy: RegularEnemy):
+func onEnemyDied(enemy):
 	print(enemy)
