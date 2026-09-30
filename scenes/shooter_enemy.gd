@@ -20,7 +20,7 @@ func shoot() -> void:
 	bulletInstance.speed = bulletSpeed * -1
 	bulletInstance.position = bulletOrigin.global_position
 	bulletInstance.collisionArea.body_entered.connect(Callable(self, "onProjectileHitWall"))
-	bulletInstance.collisionArea.area_entered.connect(Callable(self, "onProjectileHitEntity"))
+	bulletInstance.collisionArea.area_entered.connect(Callable(self, "onProjectileHitPlayer"))
 
 
 func die():

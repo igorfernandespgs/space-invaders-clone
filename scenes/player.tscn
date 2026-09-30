@@ -7,6 +7,9 @@
 atlas = ExtResource("2_i3pqv")
 region = Rect2(3, 49, 13, 8)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
+size = Vector2(38, 24)
+
 [node name="Player" type="Node2D" unique_id=885219884]
 script = ExtResource("1_onrkg")
 bulletSpeed = 10
@@ -17,3 +20,9 @@ texture = SubResource("AtlasTexture_p4a6n")
 
 [node name="BulletOrigin" type="Marker2D" parent="." unique_id=1609597608]
 position = Vector2(0, -22)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=225826279]
+collision_layer = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=309247257]
+shape = SubResource("RectangleShape2D_g2els")
