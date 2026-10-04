@@ -1,14 +1,17 @@
 [gd_scene format=3 uid="uid://c1ffc7gcr5cw8"]
 
-[ext_resource type="PackedScene" uid="uid://be61bepac88kx" path="res://scenes/regular_enemy.tscn" id="1_cevnf"]
-[ext_resource type="Script" uid="uid://bh65vfr65d5tq" path="res://scenes/enemy_swarm.gd" id="1_jx3qf"]
-[ext_resource type="PackedScene" uid="uid://dky5hhsvdmba8" path="res://lightning_shooter.tscn" id="3_su2v0"]
+[ext_resource type="PackedScene" uid="uid://be61bepac88kx" path="res://scenes/entities/enemies/regular_enemy.tscn" id="1_cevnf"]
+[ext_resource type="Script" uid="uid://bh65vfr65d5tq" path="res://scenes/entities/enemies/enemy_swarm.gd" id="1_jx3qf"]
+[ext_resource type="PackedScene" uid="uid://dky5hhsvdmba8" path="res://scenes/entities/enemies/shooters/lightning_shooter.tscn" id="3_su2v0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p4a6n"]
 size = Vector2(4.5, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jx3qf"]
 size = Vector2(4.5, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eehox"]
+size = Vector2(576, 144)
 
 [node name="EnemySwarm" type="Node2D" unique_id=85273450]
 script = ExtResource("1_jx3qf")
@@ -31,6 +34,7 @@ shape = SubResource("RectangleShape2D_jx3qf")
 debug_color = Color(0.9405022, 9.529888e-06, 0.6169056, 0.41960785)
 
 [node name="RegularEnemies" type="Node2D" parent="." unique_id=200179896]
+position = Vector2(0, 80)
 
 [node name="RegularEnemy" parent="RegularEnemies" unique_id=1768560801 instance=ExtResource("1_cevnf")]
 position = Vector2(-270, -20)
@@ -95,61 +99,65 @@ position = Vector2(270, 20)
 [node name="LightingShooters" type="Node2D" parent="." unique_id=512564131]
 
 [node name="LightningShooter" parent="LightingShooters" unique_id=1434961722 instance=ExtResource("3_su2v0")]
-position = Vector2(-270, 60)
+position = Vector2(-270, -20)
 
 [node name="LightningShooter2" parent="LightingShooters" unique_id=825970380 instance=ExtResource("3_su2v0")]
-position = Vector2(-210, 60)
+position = Vector2(-210, -20)
 
 [node name="LightningShooter3" parent="LightingShooters" unique_id=551885178 instance=ExtResource("3_su2v0")]
-position = Vector2(-150, 60)
+position = Vector2(-150, -20)
 
 [node name="LightningShooter4" parent="LightingShooters" unique_id=453493724 instance=ExtResource("3_su2v0")]
-position = Vector2(-90, 60)
+position = Vector2(-90, -20)
 
 [node name="LightningShooter5" parent="LightingShooters" unique_id=967102496 instance=ExtResource("3_su2v0")]
-position = Vector2(-30, 60)
+position = Vector2(-30, -20)
 
 [node name="LightningShooter6" parent="LightingShooters" unique_id=2062915654 instance=ExtResource("3_su2v0")]
-position = Vector2(30, 60)
+position = Vector2(30, -20)
 
 [node name="LightningShooter7" parent="LightingShooters" unique_id=1424190317 instance=ExtResource("3_su2v0")]
-position = Vector2(90, 60)
+position = Vector2(90, -20)
 
 [node name="LightningShooter8" parent="LightingShooters" unique_id=1593575270 instance=ExtResource("3_su2v0")]
-position = Vector2(150, 60)
+position = Vector2(150, -20)
 
 [node name="LightningShooter9" parent="LightingShooters" unique_id=1990033593 instance=ExtResource("3_su2v0")]
-position = Vector2(210, 60)
+position = Vector2(210, -20)
 
 [node name="LightningShooter10" parent="LightingShooters" unique_id=1596915795 instance=ExtResource("3_su2v0")]
-position = Vector2(270, 60)
+position = Vector2(270, -20)
 
 [node name="LightningShooter11" parent="LightingShooters" unique_id=564203185 instance=ExtResource("3_su2v0")]
-position = Vector2(-270, 100)
+position = Vector2(-270, 20)
 
 [node name="LightningShooter12" parent="LightingShooters" unique_id=1526283090 instance=ExtResource("3_su2v0")]
-position = Vector2(-210, 100)
+position = Vector2(-210, 20)
 
 [node name="LightningShooter13" parent="LightingShooters" unique_id=1836642606 instance=ExtResource("3_su2v0")]
-position = Vector2(-150, 100)
+position = Vector2(-150, 20)
 
 [node name="LightningShooter14" parent="LightingShooters" unique_id=1503977715 instance=ExtResource("3_su2v0")]
-position = Vector2(-90, 100)
+position = Vector2(-90, 20)
 
 [node name="LightningShooter15" parent="LightingShooters" unique_id=1259269202 instance=ExtResource("3_su2v0")]
-position = Vector2(-30, 100)
+position = Vector2(-30, 20)
 
 [node name="LightningShooter16" parent="LightingShooters" unique_id=1348850901 instance=ExtResource("3_su2v0")]
-position = Vector2(30, 100)
+position = Vector2(30, 20)
 
 [node name="LightningShooter17" parent="LightingShooters" unique_id=1019743889 instance=ExtResource("3_su2v0")]
-position = Vector2(90, 100)
+position = Vector2(90, 20)
 
 [node name="LightningShooter18" parent="LightingShooters" unique_id=832764821 instance=ExtResource("3_su2v0")]
-position = Vector2(150, 100)
+position = Vector2(150, 20)
 
 [node name="LightningShooter19" parent="LightingShooters" unique_id=803402212 instance=ExtResource("3_su2v0")]
-position = Vector2(210, 100)
+position = Vector2(210, 20)
 
 [node name="LightningShooter20" parent="LightingShooters" unique_id=1664705417 instance=ExtResource("3_su2v0")]
-position = Vector2(270, 100)
+position = Vector2(270, 20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1940205126]
+position = Vector2(0, 40)
+shape = SubResource("RectangleShape2D_eehox")

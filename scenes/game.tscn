@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://epfqcb06ps7i"]
 
-[ext_resource type="Script" uid="uid://c2yxhdpso3mo3" path="res://scenes/game.gd" id="1_kddj0"]
-[ext_resource type="PackedScene" uid="uid://crbdy32cwfjl" path="res://scenes/player.tscn" id="1_rupst"]
-[ext_resource type="PackedScene" uid="uid://c1ffc7gcr5cw8" path="res://scenes/enemy_swarm.tscn" id="2_qchbg"]
+[ext_resource type="Script" uid="uid://c2yxhdpso3mo3" path="res://scenes/game.gd" id="1_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://crbdy32cwfjl" path="res://scenes/entities/player.tscn" id="2_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://c1ffc7gcr5cw8" path="res://scenes/entities/enemies/enemy_swarm.tscn" id="3_iywne"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hddm4"]
 size = Vector2(1152, 20)
@@ -16,17 +16,15 @@ size = Vector2(30, 608)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q8s1k"]
 size = Vector2(30, 608)
 
-[node name="Playground" type="Node2D" unique_id=108654040 groups=["map"]]
-script = ExtResource("1_kddj0")
+[node name="Game" type="Node2D" unique_id=108654040 groups=["map"]]
+script = ExtResource("1_lnu2h")
 
-[node name="Player" parent="." unique_id=885219884 node_paths=PackedStringArray("leftCornerNode", "rightCornerNode") instance=ExtResource("1_rupst")]
+[node name="Player" parent="." unique_id=885219884 node_paths=PackedStringArray("left_corner_node", "right_corner_node") instance=ExtResource("2_lbhrr")]
 position = Vector2(576, 613)
-leftCornerNode = NodePath("../LeftCorner")
-rightCornerNode = NodePath("../RightCorner")
-bulletSpeed = 300
-moveSpeed = 300
+left_corner_node = NodePath("../LeftCorner")
+right_corner_node = NodePath("../RightCorner")
 
-[node name="EnemySwarm" parent="." unique_id=85273450 instance=ExtResource("2_qchbg")]
+[node name="EnemySwarm" parent="." unique_id=85273450 instance=ExtResource("3_iywne")]
 position = Vector2(576, 148)
 
 [node name="LeftCorner" type="Marker2D" parent="." unique_id=1648092884]

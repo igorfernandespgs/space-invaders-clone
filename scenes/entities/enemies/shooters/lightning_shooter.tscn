@@ -1,16 +1,16 @@
 [gd_scene format=3 uid="uid://dky5hhsvdmba8"]
 
-[ext_resource type="PackedScene" uid="uid://b4g40l5hkbgem" path="res://scenes/shooter_enemy.tscn" id="1_j8pai"]
-[ext_resource type="Texture2D" uid="uid://c4rsrxf7wv5am" path="res://spritesheet.png" id="2_0t7eg"]
+[ext_resource type="PackedScene" uid="uid://b4g40l5hkbgem" path="res://scenes/entities/enemies/shooter_enemy.tscn" id="1_goi6d"]
+[ext_resource type="Texture2D" uid="uid://c4rsrxf7wv5am" path="res://spritesheet.png" id="2_55esx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j8pai"]
-atlas = ExtResource("2_0t7eg")
+atlas = ExtResource("2_55esx")
 region = Rect2(22, 11, 11, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0t7eg"]
 size = Vector2(36, 24)
 
-[node name="LightningShooter" unique_id=1434961722 instance=ExtResource("1_j8pai")]
+[node name="LightningShooter" unique_id=1434961722 groups=["enemy"] instance=ExtResource("1_goi6d")]
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="0" unique_id=1251972619]
 scale = Vector2(3, 3)

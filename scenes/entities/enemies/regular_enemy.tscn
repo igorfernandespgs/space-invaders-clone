@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://be61bepac88kx"]
 
-[ext_resource type="Script" uid="uid://c2x1ooc7oqxib" path="res://scenes/regular_enemy.gd" id="1_f5yom"]
+[ext_resource type="Script" uid="uid://c2x1ooc7oqxib" path="res://scenes/entities/enemies/regular_enemy.gd" id="1_f5yom"]
 [ext_resource type="Texture2D" uid="uid://c4rsrxf7wv5am" path="res://spritesheet.png" id="2_xa7ej"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p4a6n"]
 size = Vector2(36, 24)
 
-[node name="RegularEnemy" type="Node2D" unique_id=1768560801]
+[node name="RegularEnemy" type="Node2D" unique_id=1768560801 groups=["enemy"]]
 script = ExtResource("1_f5yom")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=515424358]

@@ -1,9 +1,10 @@
 extends Node2D
 
 func _ready() -> void:
-	# TODO: Atualizar para Godot 4 usando o exemplo abaixo
-	#Events.enemy_died.connect(Callable(self, "onEnemyDied"))
-	Events.enemy_died.connect(onEnemyDied)
+	var bind_enemy_died_event = func (enemy: Enemy): 
+		enemy.died.connect(_on_enemy_died)
+	get_tree().get_nodes_in_group("enemy").map(bind_enemy_died_event)
 
-func onEnemyDied(enemy):
+
+func _on_enemy_died(enemy: Enemy):
 	print(enemy)
