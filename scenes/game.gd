@@ -8,3 +8,7 @@ func _ready() -> void:
 
 func _on_enemy_died(enemy: Enemy):
 	print(enemy)
+
+# NOTE: Solução mais simples para o lambda abaixo
+func _on_enemy_swarm_enemy_died(enemy: Enemy) -> void:
+	pass # Replace with function body.

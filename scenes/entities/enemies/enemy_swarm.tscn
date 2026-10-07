@@ -34,6 +34,7 @@ shape = SubResource("RectangleShape2D_jx3qf")
 debug_color = Color(0.9405022, 9.529888e-06, 0.6169056, 0.41960785)
 
 [node name="RegularEnemies" type="Node2D" parent="." unique_id=200179896]
+unique_name_in_owner = true
 position = Vector2(0, 80)
 
 [node name="RegularEnemy" parent="RegularEnemies" unique_id=1768560801 instance=ExtResource("1_cevnf")]

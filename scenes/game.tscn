@@ -50,3 +50,5 @@ shape = SubResource("RectangleShape2D_kddj0")
 [node name="Right" type="CollisionShape2D" parent="Walls" unique_id=1992413594]
 position = Vector2(1137, 324)
 shape = SubResource("RectangleShape2D_q8s1k")
+
+[connection signal="enemy_died" from="EnemySwarm" to="." method="_on_enemy_swarm_enemy_died"]

@@ -1,6 +1,8 @@
 @icon("res://addons/at-icons/node2d/human.svg")
 class_name Player extends Node2D
 
+# NOTE: https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_styleguide.html#code-order
+
 @export_group("World Bounds")
 @export var left_corner_node: Marker2D
 @export var right_corner_node: Marker2D
@@ -12,14 +14,15 @@ class_name Player extends Node2D
 @export_group("Stats")
 @export var move_speed:int = 150
 
-var left_corner_limit: int
-var right_corner_limit: int
-var bullet_instance: Bullet
-
 @onready var player_sprite_size: int = $Sprite2D.get_rect().size.x
 @onready var bullet_origin: Marker2D = $BulletOrigin
 @onready var map:Node2D = get_parent()
 
+# TODO: Variáveis privadas abaixo de onready
+
+var left_corner_limit: int
+var right_corner_limit: int
+var bullet_instance: Bullet
 
 func _ready() -> void:
 	left_corner_limit = int(left_corner_node.position.x) + player_sprite_size * 2 
