@@ -16,6 +16,14 @@ run/main_scene="uid://epfqcb06ps7i"
 config/features=PackedStringArray("4.7")
 config/icon="res://icon.svg"
 
+[autoload]
+
+SignalLens="*uid://85rkx60vm7a7"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/signal_lens/plugin.cfg")
+
 [input]
 
 move_right={

@@ -1,6 +1,5 @@
 @icon("res://addons/at-icons/node2d/human.svg")
 class_name Player extends Node2D
-
 # NOTE: https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_styleguide.html#code-order
 
 @export_group("World Bounds")
@@ -14,19 +13,19 @@ class_name Player extends Node2D
 @export_group("Stats")
 @export var move_speed:int = 150
 
-@onready var player_sprite_size: int = $Sprite2D.get_rect().size.x
-@onready var bullet_origin: Marker2D = $BulletOrigin
-@onready var map:Node2D = get_parent()
+var bullet_origin: Marker2D
+var map:Node2D
 
-# TODO: Variáveis privadas abaixo de onready
-
+var player_border_margin: int = 26
 var left_corner_limit: int
 var right_corner_limit: int
 var bullet_instance: Bullet
 
 func _ready() -> void:
-	left_corner_limit = int(left_corner_node.position.x) + player_sprite_size * 2 
-	right_corner_limit = int(right_corner_node.position.x) - player_sprite_size * 2
+	left_corner_limit = player_border_margin
+	right_corner_limit = 1152 - player_border_margin
+	bullet_origin = $BulletOrigin
+	map = get_parent()
 
 
 func _process(delta: float) -> void:
@@ -51,7 +50,7 @@ func move_right(amount: float) -> void:
 func shoot() -> void:
 	if bullet_instance:
 		return
-	print("Atirando!")
+	#print("Atirando!")
 	bullet_instance = bullet_scene.instantiate()
 	map.add_child(bullet_instance) 
 	bullet_instance.speed = bullet_speed
@@ -64,13 +63,14 @@ func die():
 	print("player died")
 
 
-func _on_projectile_hit_walll(wall: Node2D):
-	prints("hit wall:", wall)
+func _on_projectile_hit_walll(_wall: Node2D):
+	#prints("hit wall:", wall)
 	bullet_instance.queue_free()
 
 
 func _on_projectile_hit_enemy(enemyArea: Area2D):
-	prints("hit enemy:", enemyArea.get_parent().name)
+	#prints("hit enemy:", enemyArea.get_parent().name)
 	bullet_instance.queue_free()
-	var enemy = enemyArea.get_parent()
-	enemy.die()
+	if enemyArea.owner is Enemy:
+		var enemy: Enemy = enemyArea.owner
+		enemy.die()

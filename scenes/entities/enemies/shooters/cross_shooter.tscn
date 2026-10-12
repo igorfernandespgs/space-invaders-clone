@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://hi7qjktpp3k7"]
+
+[ext_resource type="PackedScene" uid="uid://b4g40l5hkbgem" path="res://scenes/entities/enemies/shooter_enemy.tscn" id="1_xpb3j"]
+[ext_resource type="Texture2D" uid="uid://c4rsrxf7wv5am" path="res://spritesheet.png" id="2_6uwob"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lk1fa"]
+atlas = ExtResource("2_6uwob")
+region = Rect2(3, 11, 12, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_57pod"]
+size = Vector2(36, 24)
+
+[node name="CrossShooter" unique_id=1434961722 instance=ExtResource("1_xpb3j")]
+bullet_type = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="0" unique_id=1639755128]
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_lk1fa")
+
+[node name="Area2D" type="Area2D" parent="." index="1" unique_id=1066609087]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0" unique_id=655453087]
+shape = SubResource("RectangleShape2D_57pod")
+
+[node name="BulletOrigin" type="Marker2D" parent="." index="2" unique_id=1134134650]
+position = Vector2(0, 18)

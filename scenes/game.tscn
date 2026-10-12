@@ -11,10 +11,10 @@ size = Vector2(1152, 20)
 size = Vector2(1152, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kddj0"]
-size = Vector2(30, 608)
+size = Vector2(20, 608)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q8s1k"]
-size = Vector2(30, 608)
+size = Vector2(20, 608)
 
 [node name="Game" type="Node2D" unique_id=108654040 groups=["map"]]
 script = ExtResource("1_lnu2h")
@@ -25,6 +25,7 @@ left_corner_node = NodePath("../LeftCorner")
 right_corner_node = NodePath("../RightCorner")
 
 [node name="EnemySwarm" parent="." unique_id=85273450 instance=ExtResource("3_iywne")]
+unique_name_in_owner = true
 position = Vector2(576, 148)
 
 [node name="LeftCorner" type="Marker2D" parent="." unique_id=1648092884]
@@ -44,11 +45,11 @@ position = Vector2(576, 638)
 shape = SubResource("RectangleShape2D_qchbg")
 
 [node name="Left" type="CollisionShape2D" parent="Walls" unique_id=1550035555]
-position = Vector2(15, 324)
+position = Vector2(10, 324)
 shape = SubResource("RectangleShape2D_kddj0")
 
 [node name="Right" type="CollisionShape2D" parent="Walls" unique_id=1992413594]
-position = Vector2(1137, 324)
+position = Vector2(1142, 324)
 shape = SubResource("RectangleShape2D_q8s1k")
 
 [connection signal="enemy_died" from="EnemySwarm" to="." method="_on_enemy_swarm_enemy_died"]
