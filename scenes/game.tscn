@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c2yxhdpso3mo3" path="res://scenes/game.gd" id="1_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://crbdy32cwfjl" path="res://scenes/entities/player.tscn" id="2_lbhrr"]
-[ext_resource type="PackedScene" uid="uid://c1ffc7gcr5cw8" path="res://scenes/entities/enemies/enemy_swarm.tscn" id="3_iywne"]
+[ext_resource type="PackedScene" uid="uid://c1ffc7gcr5cw8" path="res://scenes/entities/collections/enemies/enemy_swarm.tscn" id="3_iywne"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hddm4"]
 size = Vector2(1152, 20)
@@ -18,11 +18,14 @@ size = Vector2(20, 608)
 
 [node name="Game" type="Node2D" unique_id=108654040 groups=["map"]]
 script = ExtResource("1_lnu2h")
+log_game_events = true
 
 [node name="Player" parent="." unique_id=885219884 node_paths=PackedStringArray("left_corner_node", "right_corner_node") instance=ExtResource("2_lbhrr")]
+unique_name_in_owner = true
 position = Vector2(576, 613)
 left_corner_node = NodePath("../LeftCorner")
 right_corner_node = NodePath("../RightCorner")
+move_speed = 200
 
 [node name="EnemySwarm" parent="." unique_id=85273450 instance=ExtResource("3_iywne")]
 unique_name_in_owner = true
@@ -52,4 +55,5 @@ shape = SubResource("RectangleShape2D_kddj0")
 position = Vector2(1142, 324)
 shape = SubResource("RectangleShape2D_q8s1k")
 
+[connection signal="died" from="Player" to="." method="_on_player_died"]
 [connection signal="enemy_died" from="EnemySwarm" to="." method="_on_enemy_swarm_enemy_died"]

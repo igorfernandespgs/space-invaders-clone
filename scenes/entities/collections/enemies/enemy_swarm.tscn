@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://c1ffc7gcr5cw8"]
+
+[ext_resource type="Script" uid="uid://bh65vfr65d5tq" path="res://scenes/entities/collections/enemies/enemy_swarm.gd" id="1_jx3qf"]
+[ext_resource type="PackedScene" uid="uid://dfy8auay7xbih" path="res://scenes/entities/collections/enemies/enemy_group.tscn" id="2_fi46b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p4a6n"]
+size = Vector2(4.5, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jx3qf"]
+size = Vector2(4.5, 20)
+
+[node name="EnemySwarm" type="Node2D" unique_id=85273450]
+script = ExtResource("1_jx3qf")
+
+[node name="MoveTimer" type="Timer" parent="." unique_id=767763707]
+wait_time = 1.4
+autostart = true
+
+[node name="ShootTimer" type="Timer" parent="." unique_id=1538235362]
+wait_time = 2.0
+autostart = true
+
+[node name="WallDetector" type="Area2D" parent="." unique_id=1435725544]
+unique_name_in_owner = true
+collision_layer = 0
+
+[node name="Left" type="CollisionShape2D" parent="WallDetector" unique_id=1230065594]
+position = Vector2(-288, 0)
+shape = SubResource("RectangleShape2D_p4a6n")
+debug_color = Color(0.9405022, 9.529888e-06, 0.6169056, 0.41960785)
+
+[node name="Right" type="CollisionShape2D" parent="WallDetector" unique_id=918845501]
+position = Vector2(288, 0)
+shape = SubResource("RectangleShape2D_jx3qf")
+debug_color = Color(0.9405022, 9.529888e-06, 0.6169056, 0.41960785)
+
+[node name="EnemyGroups" type="Node2D" parent="." unique_id=158484548]
+
+[node name="CrossShooters" parent="EnemyGroups" unique_id=803420686 instance=ExtResource("2_fi46b")]
+unique_name_in_owner = true
+show_position_preview_logs = false
+enemy_type = 2
+rows = 1
+horizontal_gap_size = 50
+
+[node name="LightningShooters" parent="EnemyGroups" unique_id=1045414848 instance=ExtResource("2_fi46b")]
+unique_name_in_owner = true
+position = Vector2(0, 70)
+show_position_preview_logs = false
+enemy_type = 1
+horizontal_gap_size = 50
+
+[node name="RegularEnemies" parent="EnemyGroups" unique_id=2099421969 instance=ExtResource("2_fi46b")]
+unique_name_in_owner = true
+position = Vector2(0, 160)
+show_position_preview_logs = false
+horizontal_gap_size = 50
+
+[connection signal="enemy_died" from="." to="." method="_on_enemy_died"]
+[connection signal="timeout" from="MoveTimer" to="." method="_on_move_timer_timeout"]
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
+[connection signal="body_entered" from="WallDetector" to="." method="_on_wall_detector_body_entered"]

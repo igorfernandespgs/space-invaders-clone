@@ -2,24 +2,112 @@
 
 [ext_resource type="Texture2D" uid="uid://c4rsrxf7wv5am" path="res://spritesheet.png" id="1_v7oki"]
 [ext_resource type="Script" uid="uid://dcby1oqy8kdcn" path="res://scenes/entities/bullet.gd" id="1_v8qja"]
+[ext_resource type="Resource" uid="uid://cvvly80ujfwhn" path="res://database/bullets/player/default_bullet.tres" id="2_r16mb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j4dlv"]
 atlas = ExtResource("1_v7oki")
 region = Rect2(42, 21, 1, 7)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_byxw7"]
+atlas = ExtResource("1_v7oki")
+region = Rect2(0, 21, 5, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r16mb"]
+atlas = ExtResource("1_v7oki")
+region = Rect2(5, 21, 5, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6yx2q"]
+atlas = ExtResource("1_v7oki")
+region = Rect2(10, 21, 5, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ltso5"]
+atlas = ExtResource("1_v7oki")
+region = Rect2(15, 21, 5, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v7ugd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_byxw7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r16mb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6yx2q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ltso5")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 16.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fqdpp"]
+atlas = ExtResource("1_v7oki")
+region = Rect2(26, 20, 3, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l4j18"]
+atlas = ExtResource("1_v7oki")
+region = Rect2(31, 20, 3, 10)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qxtas"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fqdpp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l4j18")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 2.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p4a6n"]
+size = Vector2(4, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r16mb"]
 size = Vector2(8, 22)
 
 [node name="Bullet" type="Node2D" unique_id=532600033]
 script = ExtResource("1_v8qja")
+bullet_configuration = ExtResource("2_r16mb")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=177481890]
-scale = Vector2(5, 3)
+[node name="Visuals" type="Node2D" parent="." unique_id=2061254721]
+z_index = -1
+
+[node name="NormalBullet" type="Sprite2D" parent="Visuals" unique_id=177481890]
+scale = Vector2(2, 2)
 texture = SubResource("AtlasTexture_j4dlv")
+
+[node name="LightningBullet" type="AnimatedSprite2D" parent="Visuals" unique_id=1310621413]
+visible = false
+position = Vector2(5.9604645e-08, 4.172325e-07)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_v7ugd")
+autoplay = "default"
+frame_progress = 0.9719534
+
+[node name="CrossBullet" type="AnimatedSprite2D" parent="Visuals" unique_id=1145568133]
+visible = false
+position = Vector2(0, 3)
+scale = Vector2(2.671, 3.593)
+sprite_frames = SubResource("SpriteFrames_qxtas")
+autoplay = "default"
+frame_progress = 0.6776414
 
 [node name="Area" type="Area2D" parent="." unique_id=578521082]
 collision_layer = 0
 collision_mask = 13
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area" unique_id=1506313161]
+[node name="NormalCollisionShape" type="CollisionShape2D" parent="Area" unique_id=1506313161]
 shape = SubResource("RectangleShape2D_p4a6n")
+
+[node name="ShooterCollisionShape" type="CollisionShape2D" parent="Area" unique_id=1213088610]
+visible = false
+shape = SubResource("RectangleShape2D_r16mb")
+disabled = true
+debug_color = Color(0.86962825, 0.00051769434, 0.8525071, 0.41960785)

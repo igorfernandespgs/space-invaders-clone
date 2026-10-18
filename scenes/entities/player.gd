@@ -2,16 +2,18 @@
 class_name Player extends Node2D
 # NOTE: https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_styleguide.html#code-order
 
+signal died(life_left: int)
+
 @export_group("World Bounds")
 @export var left_corner_node: Marker2D
 @export var right_corner_node: Marker2D
 
 @export_group("Projectile")
-@export var bullet_scene: PackedScene = preload("res://scenes/entities/bullet.tscn")
-@export var bullet_speed: int = 300
+@export var bullet_configuration: BulletConfiguration
 
 @export_group("Stats")
 @export var move_speed:int = 150
+@export var health_configuration: HealthConfiguration
 
 var bullet_origin: Marker2D
 var map:Node2D
@@ -20,6 +22,7 @@ var player_border_margin: int = 26
 var left_corner_limit: int
 var right_corner_limit: int
 var bullet_instance: Bullet
+
 
 func _ready() -> void:
 	left_corner_limit = player_border_margin
@@ -50,10 +53,9 @@ func move_right(amount: float) -> void:
 func shoot() -> void:
 	if bullet_instance:
 		return
-	#print("Atirando!")
-	bullet_instance = bullet_scene.instantiate()
-	map.add_child(bullet_instance) 
-	bullet_instance.speed = bullet_speed
+	bullet_instance = bullet_configuration.bullet_scene.instantiate()
+	map.add_child(bullet_instance)
+	bullet_instance.bullet_configuration = bullet_configuration
 	bullet_instance.position = bullet_origin.global_position
 	bullet_instance.collision_area.body_entered.connect(_on_projectile_hit_walll)
 	bullet_instance.collision_area.area_entered.connect(_on_projectile_hit_enemy)
@@ -61,6 +63,9 @@ func shoot() -> void:
 
 func die():
 	print("player died")
+	health_configuration.remove_from_current_hp(1)
+	prints("current health:",health_configuration.current_hp)
+	died.emit(health_configuration.current_hp)
 
 
 func _on_projectile_hit_walll(_wall: Node2D):

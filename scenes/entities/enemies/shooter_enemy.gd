@@ -2,29 +2,28 @@
 class_name ShooterEnemy extends Enemy
 
 @export_group("Projectile")
-@export var bullet_scene: PackedScene = preload("res://scenes/entities/bullet.tscn")
-@export var bullet_type: Bullet.BulletType
-@export var bullet_speed: int = 300
+@export var bullet_configuration: BulletConfiguration
 
 var bullet_instance: Bullet
 
-@onready var bullet_origin: Marker2D = $BulletOrigin
-@onready var map:Node2D = get_tree().get_nodes_in_group("map")[0]
+var bullet_origin: Marker2D
+var map:Node2D 
 
+func _ready() -> void:
+	bullet_origin = $BulletOrigin
+	map = get_tree().get_nodes_in_group("map")[0]
 
 func shoot() -> void:
 	if bullet_instance:
 		return
-	#print("%s Atirando!" % self.name)
-	bullet_instance = bullet_scene.instantiate()
+	bullet_instance = bullet_configuration.bullet_scene.instantiate()
 	map.add_child(bullet_instance)
-	bullet_instance.bullet_type = bullet_type
-	# comentar sobre isso aqui
-	bullet_instance.speed = bullet_speed * -1
 	bullet_instance.position = bullet_origin.global_position
+	bullet_instance.bullet_configuration = bullet_configuration
+	#bullet_instance.bullet_configuration.bullet_speed *= -1
 	bullet_instance.collision_area.body_entered.connect(_on_projectile_hit_wall)
 	bullet_instance.collision_area.area_entered.connect(_on_projectile_hit_entity)
-	# perguntar sobre um método start_moving/start_bullet aqui
+
 
 func _on_projectile_hit_wall(_wall: Node2D):
 	#prints("%s bullet hit wall: %s" % [self.name, wall])

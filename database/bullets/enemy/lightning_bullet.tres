@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="BulletConfiguration" format=3 uid="uid://0l4qvv4i7vhl"]
+
+[ext_resource type="Script" uid="uid://0vh4q064w752" path="res://database/bullets/bullet_configuration.gd" id="1_3d44e"]
+[ext_resource type="PackedScene" uid="uid://cfa0wt0xbhjhq" path="res://scenes/entities/bullet.tscn" id="1_bjwrg"]
+
+[resource]
+script = ExtResource("1_3d44e")
+bullet_type = 2
+bullet_speed = -300
+metadata/_custom_type_script = "uid://0vh4q064w752"
