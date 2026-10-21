@@ -1,13 +1,21 @@
 extends Node2D
 
+# TODO: Quem cuida das scenes do player é o game
+
 var enemy_swarm: EnemySwarm
 var player: Player
+
+# TODO: snake_case
 var bossLeftSpawnPosition: Marker2D
 var bossRightSpawnPosition: Marker2D
 
 @export var log_game_events: bool = false
 
+# NOTE: Maneira mais correta/segura/prática de pegar uma dependência filha
+#@onready var spawn_boss_timer: Timer = %SpawnBossTimer
+
 var spawnBossTimer:Timer 
+
 func _ready() -> void:
 	enemy_swarm = %EnemySwarm
 	player = %Player

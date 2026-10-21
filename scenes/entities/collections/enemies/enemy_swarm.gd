@@ -92,11 +92,16 @@ func _get_random_shooter() -> ShooterEnemy:
 	return random_shooter
 
 
+# TODO: Quanto maior a complexidade ciclomática, mais necessários são
+# comentários em cada identação
 func _get_wall_detector_positions() -> Array[Vector2]:
 	var left_most_position:Vector2 = Vector2.INF
 	var right_most_position:Vector2 = -Vector2.INF
+	# 
 	for enemy_group:EnemyGroup in $EnemyGroups.get_children():
+		#
 		for enemy: Enemy in enemy_group.enemies:
+			# 
 			if enemy.position.x < left_most_position.x:
 				left_most_position = enemy.position
 			if enemy.position.x > right_most_position.x:
