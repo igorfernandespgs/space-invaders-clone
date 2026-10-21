@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c2yxhdpso3mo3" path="res://scenes/game.gd" id="1_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://crbdy32cwfjl" path="res://scenes/entities/player.tscn" id="2_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://c1ffc7gcr5cw8" path="res://scenes/entities/collections/enemies/enemy_swarm.tscn" id="3_iywne"]
+[ext_resource type="PackedScene" uid="uid://e53424iuahj4" path="res://scenes/entities/enemies/boss_enemy.tscn" id="4_lbhrr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hddm4"]
 size = Vector2(1152, 20)
@@ -20,6 +21,17 @@ size = Vector2(20, 608)
 script = ExtResource("1_lnu2h")
 log_game_events = true
 
+[node name="SpawnBossTimer" type="Timer" parent="." unique_id=42560505]
+unique_name_in_owner = true
+
+[node name="BossLeftSpawnPosition" type="Marker2D" parent="." unique_id=1446749865]
+unique_name_in_owner = true
+position = Vector2(-24, 56)
+
+[node name="BossRightSpawnPosition" type="Marker2D" parent="." unique_id=514849245]
+unique_name_in_owner = true
+position = Vector2(1176, 56)
+
 [node name="Player" parent="." unique_id=885219884 node_paths=PackedStringArray("left_corner_node", "right_corner_node") instance=ExtResource("2_lbhrr")]
 unique_name_in_owner = true
 position = Vector2(576, 613)
@@ -30,6 +42,7 @@ move_speed = 200
 [node name="EnemySwarm" parent="." unique_id=85273450 instance=ExtResource("3_iywne")]
 unique_name_in_owner = true
 position = Vector2(576, 148)
+swarm_move_speed = 0
 
 [node name="LeftCorner" type="Marker2D" parent="." unique_id=1648092884]
 position = Vector2(0, 324)
@@ -55,5 +68,9 @@ shape = SubResource("RectangleShape2D_kddj0")
 position = Vector2(1142, 324)
 shape = SubResource("RectangleShape2D_q8s1k")
 
+[node name="BossEnemy" parent="." unique_id=433267536 instance=ExtResource("4_lbhrr")]
+position = Vector2(-24, 56)
+
+[connection signal="timeout" from="SpawnBossTimer" to="." method="_on_spawn_boss_timer_timeout"]
 [connection signal="died" from="Player" to="." method="_on_player_died"]
 [connection signal="enemy_died" from="EnemySwarm" to="." method="_on_enemy_swarm_enemy_died"]

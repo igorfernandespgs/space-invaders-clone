@@ -13,6 +13,7 @@ signal enemy_died(enemy: Enemy, enemy_type: EnemyGroup.EnemyType)
 ## that the Shoot[Timer] triggers a timeout signal
 ## [br][note] The minimum is always 0
 @export var max_shooters_per_timeout: int = 2
+@export var swarm_move_speed: int = 10
 
 #endregion
 
@@ -29,7 +30,6 @@ var lighting_shooter_enemies: Array[ShooterEnemy]
 var cross_shooter_enemies: Array[ShooterEnemy]
 var all_shooter_enemies: Array[ShooterEnemy]
 
-var move_speed: int = 10
 var enemy_size = Vector2(36.0,24.0)
 
 #endregion
@@ -169,7 +169,7 @@ func _on_enemy_died(_enemy: Enemy, _enemy_type: EnemyGroup.EnemyType) -> void:
 
 
 func _on_move_timer_timeout() -> void:
-	position.x += move_speed
+	position.x += swarm_move_speed
 
 
 func _on_shoot_timer_timeout() -> void:
@@ -182,6 +182,8 @@ func _on_shoot_timer_timeout() -> void:
 
 func _on_wall_detector_body_entered(_wall: Node2D) -> void:
 	#prints("hit wall:", wall)
-	move_speed *= -1
+	# Ainda preciso detectar aqui se o enemy swarm chegou ao "fim" da altura
+	# do mapa, e descer X pixels toda vez que encosta na parede
+	swarm_move_speed *= -1
 
 #endregion
